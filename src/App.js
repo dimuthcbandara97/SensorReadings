@@ -36,17 +36,18 @@ function App() {
   // Magnetometer settings
   const MagMessagesRef = firestore.collection('MagnitudeData');
   const MagQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
-  const [MagData] = useCollectionData(GPSQuery);
+  const [MagData] = useCollectionData(MagQuery);
 
   // Accelerometer settings
   //
   const AcclMessagesRef = firestore.collection('AccelerationData');
   const AcclQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
-  const [AcclData] = useCollectionData(GPSQuery);
+  const [AcclData] = useCollectionData(AcclQuery);
   console.log(tempData);
   return (
     <div>
       <h1>Sensor Data</h1>
+      
       <h2>Temperature sensor</h2>
 
       {tempData && tempData.map(dataPoint => 
@@ -60,11 +61,12 @@ function App() {
 )}
 
       <h2>GPS sensor</h2>
+      
       {GPSData && GPSData.map(dataPoint =>
        <div className="GPSComp">
         <GPSComp
         time={dataPoint.createdAt.seconds}
-        latitude={dataPoint.latitude}
+        latitude={dataPoint.Reading}
         longitude={dataPoint.longitude}
       />
        </div>
