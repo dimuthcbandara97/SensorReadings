@@ -1,8 +1,23 @@
-.SingleTempReading{
+
+.SingleTempReading {
     border: 2px solid blueviolet;
-    display: inline-block;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    margin-left: 90px;
-}
+    margin-left: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease-in-out; /* add a transition effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    .SingleTempReading:hover {
+    transform: scale(1.1); 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+    }

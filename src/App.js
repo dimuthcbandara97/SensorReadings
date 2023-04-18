@@ -23,29 +23,53 @@ function App() {
 
   const firestore = firebase.firestore();
   
+  // Temperature settings
   const tempMessagesRef = firestore.collection('TempData');
-  const tempQuery = tempMessagesRef.orderBy('createdAt').limit(25);
+  const tempQuery = tempMessagesRef.orderBy('createdAt').limit(3);
   const [tempData] = useCollectionData(tempQuery);
 
+  // GPS settings
   const GPSMessagesRef = firestore.collection('GPSData');
-  const GPSQuery = GPSMessagesRef.orderBy('createdAt').limit(25);
+  const GPSQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
   const [GPSData] = useCollectionData(GPSQuery);
 
+  // Magnetometer settings
+  const MagMessagesRef = firestore.collection('MagnitudeData');
+  const MagQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
+  const [MagData] = useCollectionData(GPSQuery);
+
+  // Accelerometer settings
+  //
+  const AcclMessagesRef = firestore.collection('AccelerationData');
+  const AcclQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
+  const [AcclData] = useCollectionData(GPSQuery);
   console.log(tempData);
   return (
     <div>
       <h1>Sensor Data</h1>
       <h2>Temperature sensor</h2>
-      {tempData && tempData.map(dataPoint => <TempComp
-        tempReading={dataPoint.Reading}
-        time={dataPoint.createdAt.seconds}
-      />)}
+
+      {tempData && tempData.map(dataPoint => 
+      <div className="TempComp">
+  <TempComp
+    tempReading={dataPoint.Reading}
+    time={dataPoint.createdAt.seconds}
+  />
+</div>
+
+)}
+
       <h2>GPS sensor</h2>
-      {GPSData && GPSData.map(dataPoint => <GPSComp
+      {GPSData && GPSData.map(dataPoint =>
+       <div className="GPSComp">
+        <GPSComp
         time={dataPoint.createdAt.seconds}
         latitude={dataPoint.latitude}
         longitude={dataPoint.longitude}
-      />)}
+      />
+       </div>
+      
+      )}
     </div>
   );
 }

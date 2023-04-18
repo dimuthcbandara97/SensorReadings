@@ -32,6 +32,31 @@
   color: #61dafb;
 }
 
+div {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+h1 {
+  border-bottom: 2px solid blueviolet;
+  padding-bottom: 10px;
+}
+h2 {
+  margin-top: 30px;
+  padding-top: 10px;
+}
+.TempComp,
+.GPSComp {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
