@@ -3,6 +3,8 @@ import 'firebase/compat/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import GPSComp from './GPSComp/GPSComp';
 import TempComp from './TempComp/TempComp';
+
+
 import './App.css'
 
 function App() {
@@ -72,6 +74,7 @@ function App() {
        </div>
       
       )}
+
     </div>
   );
 }
