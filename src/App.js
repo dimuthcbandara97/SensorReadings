@@ -8,6 +8,7 @@ import MagnComp from './MagComp/MagnComp';
 
 import './App.css'
 import AcclComp from './AccelComp/AcclComp';
+import BarGraph from './BarGraph/Bargraph';
 
 function App() {
   const firebaseConfig = {
@@ -36,35 +37,34 @@ function App() {
 
   // GPS settings
   const GPSMessagesRef = firestore.collection('GPSData');
-  const GPSQuery = GPSMessagesRef.orderBy('createdAt').limit(3);
+  const GPSQuery = GPSMessagesRef.orderBy('createdAt', 'desc').limit(10);
   const [GPSData] = useCollectionData(GPSQuery);
 
   // Magnetometer settings
   const MagMessagesRef = firestore.collection('MagnitudeData');
-  const MagQuery = MagMessagesRef.orderBy('createdAt').limit(3);
+  const MagQuery = MagMessagesRef.orderBy('createdAt', 'desc').limit(10);
   const [MagData] = useCollectionData(MagQuery);
 
   // Accelerometer settings
   //
   const AcclMessagesRef = firestore.collection('AccelerationData');
-  const AcclQuery = AcclMessagesRef.orderBy('createdAt').limit(3);
+  const AcclQuery = AcclMessagesRef.orderBy('createdAt', 'desc').limit(10);
   const [AcclData] = useCollectionData(AcclQuery);
   console.log(tempData);
   return (
     <div>
       <h1>Sensor Data</h1>
 
-      {/* <h2>Temperature sensor</h2>
+      
+      {/* <h2>Graphs View</h2> */}
 
-      {tempData && tempData.map(dataPoint =>
         <div className="TempComp">
-          <TempComp
+          {/* <TempComp
             tempReading={dataPoint.Reading}
             time={dataPoint.createdAt.seconds}
-          />
+          /> */}
+          {/* <BarGraph/> */}
         </div>
-
-      )} */}
 
       <h2>GPS sensor</h2>
 
@@ -87,6 +87,7 @@ function App() {
     <AcclComp
             acclReading={dataPoint.Reading}
             time={dataPoint.createdAt.seconds}
+            sensorID={dataPoint.SensorID}
           />
   </div>
 
@@ -99,6 +100,7 @@ function App() {
           <MagnComp
             time={dataPoint.createdAt.seconds}
             magnReading={dataPoint.Reading}
+            sensorID={dataPoint.SensorID}
           />
         </div>
 
