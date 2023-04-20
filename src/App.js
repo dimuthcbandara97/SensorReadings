@@ -3,6 +3,7 @@ import 'firebase/compat/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import GPSComp from './GPSComp/GPSComp';
 import TempComp from './TempComp/TempComp';
+import MagnComp from './MagComp/MagnComp';
 
 
 import './App.css'
@@ -53,7 +54,7 @@ function App() {
     <div>
       <h1>Sensor Data</h1>
 
-      <h2>Temperature sensor</h2>
+      {/* <h2>Temperature sensor</h2>
 
       {tempData && tempData.map(dataPoint =>
         <div className="TempComp">
@@ -63,7 +64,7 @@ function App() {
           />
         </div>
 
-      )}
+      )} */}
 
       <h2>GPS sensor</h2>
 
@@ -73,6 +74,7 @@ function App() {
             time={dataPoint.createdAt.seconds}
             latitude={dataPoint.Reading}
             longitude={dataPoint.longitude}
+            deviceID={dataPoint.SensorID}
           />
         </div>
 
@@ -92,12 +94,11 @@ function App() {
 
 <h2>Magnetometer Sensor</h2>
 
-      {GPSData && GPSData.map(dataPoint =>
+      {MagData && MagData.map(dataPoint =>
         <div className="GPSComp">
-          <GPSComp
+          <MagnComp
             time={dataPoint.createdAt.seconds}
-            latitude={dataPoint.Reading}
-            longitude={dataPoint.longitude}
+            magnReading={dataPoint.Reading}
           />
         </div>
 

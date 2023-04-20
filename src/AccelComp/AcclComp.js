@@ -6,11 +6,25 @@ const AcclComp = ({
     time
 }) => {
     return (
-        <div>
-            <div className="SingleAcclReading">
-                <p>Time - {new Date(time * 1000).toDateString()}</p>
-                <p>Temperature - {acclReading}° C</p>
-            </div>
+        <div className="TempTableContainer">
+            <table className="TempTable">
+                <thead>
+                    <tr>
+                        <th>Accelerometer Dat</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p className="TempTime">{new Date(time * 1000).toDateString()}</p>
+                        </td>
+                        <td>
+                            <p className="TempReading">{acclReading}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };

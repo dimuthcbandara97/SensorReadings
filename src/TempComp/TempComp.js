@@ -27,7 +27,6 @@ const TempComp = ({ tempReading, time }) => {
                     <tr>
                         <th>Time</th>
                         <th>Temperature</th>
-                        <th> Device Used </th>
                     </tr>
                 </thead>
                 <tbody>
