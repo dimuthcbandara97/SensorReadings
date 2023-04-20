@@ -1,5 +1,5 @@
 
-.SingleTempReading {
+/* .SingleTempReading {
     border: 2px solid blueviolet;
     border-radius: 10px;
     padding: 10px;
@@ -12,12 +12,45 @@
     font-weight: bold;
     color: #333;
     transition: all 0.3s ease-in-out; /* add a transition effect */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    }
-    
+    align-items: center; */
+    /*} */
+/*     
     .SingleTempReading:hover {
     transform: scale(1.1); 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+    } */
+    .TempTableContainer {
+        display: flex;
+        justify-content: center;
     }
+    
+    .TempTable {
+        border-collapse: collapse;
+        font-size: 16px;
+        margin-bottom: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .TempTable th, .TempTable td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+    
+    .TempTable th {
+        text-align: left;
+        font-weight: bold;
+        background-color: #d252ec;
+        color: white;
+    }
+    
+    .TempTable td {
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+    
+    .TempTime, .TempReading {
+        margin: 0;
+    }
+    
