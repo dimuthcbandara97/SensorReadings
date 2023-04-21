@@ -60,7 +60,7 @@ const GPSComp = ({
                     <tr>
                         <td>Speed</td>
                         <td>
-                            <p className="TempReading">{speed}° E</p>
+                            <p className="TempReading">{speed/1000} Kmph</p>
                         </td>
                     </tr>
                     <tr>

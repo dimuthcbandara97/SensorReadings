@@ -11,6 +11,7 @@ import BarGraph from './BarGraph/Bargraph';
 
 
 import MyMapComponent from './GooogleMapsIPC/GoogleMapsIPC';
+import GMap from './GooogleMapsIPC/GMaps';
 
 function App() {
   const firebaseConfig = {
@@ -37,15 +38,24 @@ function App() {
   const [GPSData] = useCollectionData(GPSQuery);
   console.log(GPSData)
 
-  const lat = 37.7749; // replace with your latitude data
-  const lng = -122.4194; // replace with your longitude data
+  //const latt = 7.538465; // replace with your latitude data
+  //const lngg = 80.246735; // replace with your longitude data
+ const latt = 0.00
+ const lngg = 0.00
+ 
   return (
     <div>
       <h1>Sensor Data</h1>
 
       {/* <h2>Graphs View</h2> */}
-<MyMapComponent/>
-       
+      {/* <MyMapComponent latitude={latt} longitude={lngg} GPSData={GPSData} />
+       */}
+
+
+        <MyMapComponent latitude={dataPoint.latitude} longitude={dataPoint.longitude} />
+
+
+      {/* <GMap/> */}
 
       <h2>GPS sensor</h2>
 
