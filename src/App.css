@@ -33,14 +33,14 @@
 }
 
 div {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   margin: 20px;
   text-align: center;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: bold; */
 }
 h1 {
   border-bottom: 2px solid red;

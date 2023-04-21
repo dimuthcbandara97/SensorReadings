@@ -9,6 +9,11 @@ import MagnComp from './MagComp/MagnComp';
 import './App.css'
 import AcclComp from './AccelComp/AcclComp';
 import BarGraph from './BarGraph/Bargraph';
+//import GoogleMapsIPC from './GooogleMapsIPC/GoogleMapsIPC';
+//import Map from './GooogleMapsIPC/GoogleMapsIPC';
+import Mapss from './GooogleMapsIPC/GoogleMapsIPC';
+import SimpleMap from './GooogleMapsIPC/GoogleMapsIPC';
+import MyMapComponent from './GooogleMapsIPC/GoogleMapsIPC';
 
 function App() {
   const firebaseConfig = {
@@ -51,19 +56,23 @@ function App() {
   const AcclQuery = AcclMessagesRef.orderBy('createdAt', 'desc').limit(10);
   const [AcclData] = useCollectionData(AcclQuery);
   console.log(tempData);
+  const lat = 37.7749; // replace with your latitude data
+  const lng = -122.4194; // replace with your longitude data
   return (
     <div>
       <h1>Sensor Data</h1>
 
-      
       {/* <h2>Graphs View</h2> */}
-
+<MyMapComponent/>
         <div className="TempComp">
           {/* <TempComp
             tempReading={dataPoint.Reading}
             time={dataPoint.createdAt.seconds}
           /> */}
           {/* <BarGraph/> */}
+          {/* <Mapss lat={lat} lng={lng} /> */}
+          {/* < */}
+          {/* <SimpleMap/> */}
         </div>
 
       <h2>GPS sensor</h2>
