@@ -25,7 +25,8 @@ const GPSComp = ({
     latitude,
     longitude,
     time,
-    deviceID
+    deviceID,
+    speed
 }) => {
     return (
         <div className="TempTableContainer">
@@ -38,9 +39,10 @@ const GPSComp = ({
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Time</td>
+                        <td>Course</td>
                         <td>
-                            <p className="TempTime">{new Date(time * 1000).toDateString()}</p>
+                            {/* <p className="TempTime">{new Date(time * 1000).toDateString()}</p> */}
+                            <p className="TempTime">{time }</p>
                         </td>
                     </tr>
                     <tr>
@@ -56,11 +58,18 @@ const GPSComp = ({
                         </td>
                     </tr>
                     <tr>
+                        <td>Speed</td>
+                        <td>
+                            <p className="TempReading">{speed}° E</p>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Sensor Name / ID : </td>
                         <td>
                             <p className="TempReading">{deviceID}</p>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
