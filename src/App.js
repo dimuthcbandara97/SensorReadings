@@ -31,25 +31,20 @@ function App() {
   // GPS settings
   const GPSMessagesRef = firestore.collection('LocationData');
   const GPSQuery = GPSMessagesRef.orderBy('sensorId', 'desc').limit(20);
+  const GPSQuery2 = GPSMessagesRef.orderBy('sensorId', 'desc').limit(1);
   const [GPSData] = useCollectionData(GPSQuery);
-  console.log(GPSData)
-
-  //const latt = 7.538465; // replace with your latitude data
-  //const lngg = 80.246735; // replace with your longitude data
- const latt = 0.00
- const lngg = 0.00
+  const [GPSData2] = useCollectionData(GPSQuery2);
+  // console.log(GPSData)
+  console.log(GPSData2)
  
   return (
     <div>
       <h1>Sensor Data</h1>
 
-      {/* <h2>Graphs View</h2> */}
-      {/* <MyMapComponent latitude={latt} longitude={lngg} GPSData={GPSData} />
-       */}
-
-
-        <MyMapComponent  />
-
+        {GPSData2 && GPSData2.map(dataPoint2 =>
+    
+        <MyMapComponent  longitude={parseFloat(dataPoint2.longitude)} latitude={parseFloat(dataPoint2.latitude)} />
+      )}
 
       {/* <GMap/> */}
 
