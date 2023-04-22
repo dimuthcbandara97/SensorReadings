@@ -3,15 +3,11 @@ import 'firebase/compat/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import GPSComp from './GPSComp/GPSComp';
 
-
-
 import './App.css'
-import AcclComp from './AccelComp/AcclComp';
-import BarGraph from './BarGraph/Bargraph';
 
 
 import MyMapComponent from './GooogleMapsIPC/GoogleMapsIPC';
-import GMap from './GooogleMapsIPC/GMaps';
+
 
 function App() {
   const firebaseConfig = {
@@ -34,7 +30,7 @@ function App() {
 
   // GPS settings
   const GPSMessagesRef = firestore.collection('LocationData');
-  const GPSQuery = GPSMessagesRef.orderBy('sensorId', 'desc').limit(10);
+  const GPSQuery = GPSMessagesRef.orderBy('sensorId', 'desc').limit(20);
   const [GPSData] = useCollectionData(GPSQuery);
   console.log(GPSData)
 
@@ -52,7 +48,7 @@ function App() {
        */}
 
 
-        <MyMapComponent latitude={dataPoint.latitude} longitude={dataPoint.longitude} />
+        <MyMapComponent  />
 
 
       {/* <GMap/> */}
